@@ -1,8 +1,8 @@
 # Run LLM models locally with .NET 10
 
-I wanted to see how difficult it would be to run a local LLM with .NET. Here's a basic implemenation using LLamaSharp and SemanticKernel which downloads the model configured in llm.json and then runs it locally to perform a simple chat with rendered Markdown. It's all handled via the Terminal so you can run the app and it does everything for you.
+I wanted to see how hard it would be to run a local LLM with .NET. Turns out not that hard. This is a console app that downloads the model configured in llm.json, loads it into memory, then you chat with it straight in the terminal. Replies come back as Markdown, with code blocks properly syntax-highlighted.
 
-I used a GGUF model (MLX is an issue with .NET) to run it on my Mac. I believe this app is cross-platform with LLamaSharp and GGUF so you can replace the Url in llm.config to whatever model you want to try.
+I used a GGUF model &ndash; MLX is still an issue with .NET &ndash; running on my Mac. Should work cross-platform since it’s just LLamaSharp and GGUF. Change the URL in llm.json to try a different model.
 
 I used Spectre.Console to render the effects.
 
