@@ -2,7 +2,7 @@
 
 I wanted to see how hard it would be to run a local LLM with .NET. Turns out not that hard. This is a console app that downloads the model configured in llm.json, loads it into memory, then you chat with it straight in the terminal. Replies come back as Markdown, with code blocks properly syntax-highlighted.
 
-I used a GGUF model &ndash; MLX is still an issue with .NET &ndash; running on my Mac. Should work cross-platform since it’s just LLamaSharp and GGUF. Change the URL in llm.json to try a different model.
+Should work cross-platform since it's just LLamaSharp and GGUF. Change the Url in llm.json to try a different model. I used a GGUF model on my Mac since MLX is still an issue with .NET.
 
 I used Spectre.Console to render the effects.
 
