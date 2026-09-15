@@ -1,0 +1,95 @@
+# ==========================================
+# 1. macOS System Garbage
+# ==========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.Trashes
+*.icloud
+
+# ==========================================
+# 2. .NET 10 / MSBuild / C# Artifacts
+# ==========================================
+[Bb]in/
+[Oo]bj/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+x64/
+x86/
+bld/
+[Ll]og/
+[Ll]ogs/
+artifacts/
+
+# MSBuild Binary and Structured Log outputs
+*.binlog
+*.pp
+*.deps
+*.aps
+
+# User-specific project files & crash dumps
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+CrashDump-*/
+
+# NuGet Packages & temporary tracking files
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+*.nuget.props
+*.nuget.targets
+
+# ==========================================
+# 3. Game Dev Frameworks (FNA / MonoGame / SDL)
+# ==========================================
+
+# MonoGame MGCB (Pipeline Tool) Build Artifacts
+# Keeps your source assets (.mgcb) but ignores the generated outputs
+.mgcb/
+**/mgcb/obj/
+**/mgcb/bin/
+
+# FNA / MonoGame Native Dynamic Libraries (Avoid committing platform binaries to git)
+# Explicitly ignores pre-compiled desktop native dependencies built on your Mac
+*.dylib
+*.dll
+*.so
+*.exe
+*.pdb
+
+# Content Builder / XNB Compiled Assets
+# (If your setup outputs compiled game data directly inside asset folders)
+*.xnb
+
+# ==========================================
+# 4. Neovim / Code Editors
+# ==========================================
+# Swap files, backups, and LSP caches
+*.swp
+*.swo
+*~
+.netrwhist
+.idea/
+.claude/
+.vscode/
+!.vscode/tasks.json
+!.vscode/launch.json
+.local/
+.csharp_ls/
+
+# ==========================================
+# 5. Environment / Secrets
+# ==========================================
+.env
+.env.*
+make-output
+
