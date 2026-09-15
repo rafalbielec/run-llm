@@ -6,7 +6,7 @@ I used a GGUF model (MLX is an issue with .NET) to run it on my Mac. I believe t
 
 I used Spectre.Console to render the effects.
 
-[Tiel-Coder on HuggingFace](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF/tree/main)
+[Tiel-Coder on HuggingFace](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF)
 
 ## Screenshots from the app
 
