@@ -1,4 +1,4 @@
-# Run LLM models locally with .NET 10
+# Run Large Language Models locally with .NET 10
 
 I wanted to see how hard it would be to run a local LLM with .NET. Turns out not that hard. This is a console app that downloads the model configured in llm.json, loads it into memory, then you chat with it straight in the terminal. Replies come back as Markdown, with code blocks properly syntax-highlighted.
 
