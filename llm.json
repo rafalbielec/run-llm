@@ -1,6 +1,6 @@
 {
   "Model": {
-    "Name": "Nanbeige4.1",
-    "Url": "https://huggingface.co/Mungert/Nanbeige4.1-3B-GGUF/resolve/main/Nanbeige4.1-3B-q4_k_m.gguf"
+    "Name": "Granite-4",
+    "Url": "https://huggingface.co/unsloth/granite-4.1-3b-GGUF/resolve/main/granite-4.1-3b-Q4_K_M.gguf"
   }
 }
