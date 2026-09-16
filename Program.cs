@@ -25,6 +25,7 @@ namespace RunLLM;
 
 internal class Program
 {
+    private const int ContextSize = 32_768;
     private const int ExitSuccess = 0;
     private const int ExitFailure = 0;
 
@@ -63,7 +64,7 @@ internal class Program
 
         AnsiConsole.MarkupLine($"[green]Loading LLM into memory.[/]");
 
-        const int contextSize = 32768;
+        const int contextSize = ContextSize;
         var modelParams = new ModelParams(modelFilePath)
         {
             ContextSize = contextSize,
@@ -81,9 +82,10 @@ internal class Program
         var executor = new StatelessExecutor(weights, modelParams);
         var executionSettings = new LLamaSharpPromptExecutionSettings
         {
-            MaxTokens = 1024,       // hard cap on reply length, in tokens
-            Temperature = 0.1,      // higher = more random/creative, lower = more deterministic
+            MaxTokens = ContextSize / 2,      // hard cap on reply length, in tokens
+            Temperature = 0.5,      // higher = more random/creative, lower = more deterministic
         };
+
         var promptTransformer = new PromptTemplateTransformer(weights, withAssistant: true);
 
         var chatCompletionService = new LLamaSharpChatCompletion(
@@ -145,20 +147,36 @@ internal class Program
                 }
             }
 
-            const string close = "</think>";
-            var result = buffer.ToString();
-            var end = result.LastIndexOf(close, StringComparison.OrdinalIgnoreCase);
-            if (end >= 0)
-            {
-                //cut off before </think>
-                result = result[(end + close.Length)..];
-            }
+            var result = RemoveThinkingBlock(buffer.ToString());
+
+            // add the response to the history too
+            history.AddAssistantMessage(result);
 
             var md = markdownRenderer.Render(result, renderOptions);
 
             AnsiConsole.Markup($"[greenyellow]{Markup.Escape(modelName)}: [/]");
             AnsiConsole.Write(md.Root ?? Text.Empty);
         }
+    }
+
+    private static string RemoveThinkingBlock(string response)
+    {
+        const string openTag = "<think>";
+        const string closeTag = "</think>";
+
+        var closeIndex = response.LastIndexOf(closeTag, StringComparison.OrdinalIgnoreCase);
+        if (closeIndex >= 0)
+        {
+            return response[(closeIndex + closeTag.Length)..].TrimStart();
+        }
+
+        var openIndex = response.IndexOf(openTag, StringComparison.OrdinalIgnoreCase);
+        if (openIndex >= 0)
+        {
+            return "Response was cut off due to context size";
+        }
+
+        return response;
     }
 
     static async Task<(bool, string)> AskOrCancelAsync(string prompt, CancellationToken token)

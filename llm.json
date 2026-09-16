@@ -1,6 +1,6 @@
 {
   "Model": {
-    "Name": "Tiel-Coder",
-    "Url": "https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF/resolve/main/Tiel-Coder-35B-A3B-UD-Q5_K_XL.gguf"
+    "Name": "Nanbeige4.1",
+    "Url": "https://huggingface.co/Mungert/Nanbeige4.1-3B-GGUF/resolve/main/Nanbeige4.1-3B-q4_k_m.gguf"
   }
 }

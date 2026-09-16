@@ -6,6 +6,10 @@ Should work cross-platform since it's just LLamaSharp and GGUF. Change the Url i
 
 I used Spectre.Console to render the effects.
 
+[Nanobeige4](https://huggingface.co/Mungert/Nanbeige4.1-3B-GGUF)
+
+[IBM Granite-4](https://huggingface.co/unsloth/granite-4.1-3b-GGUF)
+
 [Tiel-Coder on HuggingFace](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF)
 
 ## Screenshots from the app
@@ -13,3 +17,5 @@ I used Spectre.Console to render the effects.
 ![Downloading model](download.jpg)
 
 ![Basic prompt with C# code](output.jpg)
+
+![Basic prompt about Rust](output2.jpg)
