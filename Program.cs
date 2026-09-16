@@ -111,7 +111,7 @@ internal class Program
 
         while (!token.IsCancellationRequested)
         {
-            var prompt = await AskOrCancelAsync("[greenyellow]You:[/]", token);
+            var prompt = await AskOrCancelAsync("[yellow]You:[/]", token);
             if (!prompt.Item1)
             {
                 break;
